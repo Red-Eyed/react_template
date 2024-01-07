@@ -1,11 +1,13 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
 
 module.exports = {
     entry: './src/buttons.tsx', // Update the entry point to your TypeScript file
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
+        clean: true
     },
     resolve: {
         // Add '.ts' and '.tsx' as resolvable extensions.
@@ -20,7 +22,8 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({
             template: './template.html', // Your HTML template file
-            inject: true, // Inject all assets into the given template
+            inject: "body", // Inject all assets into the given template
         }),
-    ],
+        new HtmlInlineScriptPlugin()
+    ]
 };
