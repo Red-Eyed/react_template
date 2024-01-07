@@ -1,20 +1,17 @@
-// Assuming this is in a file named App.tsx
-
 import * as React from 'react';
 import { useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { range } from 'fp-ts/NonEmptyArray';
 
-
-
 interface MyButtonProps {
+    key: string;
     name: string;
     count: number;
     onClick: () => void;
 }
 
 
-function MyButton(props: MyButtonProps) {
+function MyButton(props: MyButtonProps): React.JSX.Element {
     return (
         <button onClick={props.onClick}>
             {props.name} clicked {props.count} times
@@ -22,19 +19,27 @@ function MyButton(props: MyButtonProps) {
     );
 }
 
-const App = () => {
+function App() {
     const [count, setCount] = useState(0);
 
     function handleClick() {
         setCount(count + 1);
     }
 
+    function genNButtons(buttonsNum: number) {
+        function namedButton(name: string) {
+            return (<MyButton key={ name } name={name} count={count} onClick={handleClick} />)
+        }
+
+        return range(0, buttonsNum)
+            .map((n) => n.toString())
+            .map(namedButton);
+    }
+
     return (
         <div>
             <h1>Counters that update separately</h1>
-            {range(0, 100).map((name: number) => (
-                <MyButton name={name.toString()} count={count} onClick={handleClick} />
-            ))}
+            {genNButtons(10)}
         </div>
     );
 }
