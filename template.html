@@ -2,69 +2,16 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My React App</title>
-    <!-- Webpack will automatically inject scripts and links here -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="Emulating real sheets of paper in web documents (using HTML and CSS)">
+    <title>Sheets of Paper</title>
+    <link rel="stylesheet" type="text/css" href="css/sheets-of-paper-a4.css">
 </head>
 
-<body>
-    <!-- React will mount your app inside this div -->
-    <div id="root"></div>
+<body class="document">
+    <div class="page" contenteditable="true" id="root">
+    </div>
 </body>
-<style>
-    * {
-        box-sizing: border-box;
-    }
-
-    body {
-        font-family: sans-serif;
-        margin: 20px;
-        padding: 0;
-    }
-
-    h1 {
-        margin-top: 0;
-        font-size: 22px;
-    }
-
-    h2 {
-        margin-top: 0;
-        font-size: 20px;
-    }
-
-    h3 {
-        margin-top: 0;
-        font-size: 18px;
-    }
-
-    h4 {
-        margin-top: 0;
-        font-size: 16px;
-    }
-
-    h5 {
-        margin-top: 0;
-        font-size: 14px;
-    }
-
-    h6 {
-        margin-top: 0;
-        font-size: 12px;
-    }
-
-    code {
-        font-size: 1.2em;
-    }
-
-    ul {
-        padding-inline-start: 20px;
-    }
-
-    button {
-        display: block;
-        margin-bottom: 5px;
-    }
-</style>
 
 </html>

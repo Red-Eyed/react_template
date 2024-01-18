@@ -1,6 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
+const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
     entry: './src/buttons.tsx', // Update the entry point to your TypeScript file
@@ -24,6 +25,11 @@ module.exports = {
             template: './template.html', // Your HTML template file
             inject: "body", // Inject all assets into the given template
         }),
-        new HtmlInlineScriptPlugin()
+        new HtmlInlineScriptPlugin(),
+        new CopyPlugin({
+            patterns: [
+                { from: "css", to: "css" },
+            ],
+        })
     ]
 };
