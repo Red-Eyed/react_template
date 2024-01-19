@@ -4,7 +4,7 @@ const HtmlInlineScriptPlugin = require('html-inline-script-webpack-plugin');
 const CopyPlugin = require("copy-webpack-plugin");
 
 module.exports = {
-    entry: './src/buttons.tsx', // Update the entry point to your TypeScript file
+    entry: './src/app.tsx', // Update the entry point to your TypeScript file
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
