@@ -1,18 +1,20 @@
 import * as React from 'react';
 import { createRoot } from 'react-dom/client';
 import { range } from 'fp-ts/NonEmptyArray';
-import { GenRandomTable } from "./table"
+import Table from "./table"
+import { generate } from "random-words"
 
+function generateTableData(rows: number, cols: number): any[][] {
+    return range(0, rows).map(c => range(0, cols).map(r => generate()))
+}
 
 function App() {
-    function genElements(numOfElements: number) {
-        return range(0, numOfElements - 1)
-            .map(() => { return GenRandomTable(2, 10, 2, 4) });
-    }
+    const data = generateTableData(10, 4);
+
 
     return (
         <div>
-            {genElements(1)}
+            <Table data={data} />
         </div>
     );
 }
